@@ -45,3 +45,27 @@ Latitude,Longitude,Stop Name,Stop Status
 40.737650,-73.996626,AV OF THE AMERICAS/W 18 ST,< 1 stop away
 ```
 
+## HW2 
+
+###Task 1
+Your task is to compute the median age of the Citibike’s subscribed customers. You are required to read data line by line and are not allowed to store the entire data set in memory. Indeed, you should not have any containers (e.g. list, dictionary, DataFrame, etc.) with more than 100 elements in memory. You can use the citibike.csv data file that we have on Blackboard for testing, but we will evaluate your code on a much larger input to ensure its streaming capability.
+
+
+EXAMPLE:
+```
+python hw2_task1.py citibike.csv
+39
+```
+
+
+### Task 2
+Your task is to write a generator to extract the first ride of the day from a Citibike data stream. The data stream is sorted based on starting times (similar to the citibike.csv file uploaded on Blackboard). The first ride of the day is interpreted as the ride with the earliest starting time of a day. For the sample data, which is a week worth of citibike records, your generator should only generate 7 items (one for each day).
+
+EXAMPLE:
+```
+python hw2_task2.py citibike.csv
+1,,801,2015-02-01 00:00:00+00,2015-02-01 00:14:00+00,521,8 Ave & W 31
+St,40.75044999,-73.99481051,423,W 54 St & 9 Ave,40.76584941,-
+73.98690506,17131,Subscriber,1978,2
+...
+```
