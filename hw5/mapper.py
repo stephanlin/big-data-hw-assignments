@@ -1,3 +1,4 @@
+# Weifan Lin
 #!/usr/bin/env python
 import sys, time, operator
 
@@ -7,10 +8,11 @@ def parseRecords():
         yield line.split()
 
 def mapper():
-	for words in parseRecords():
-		for w in words:
-			print '%s\t%s' % (w,1)
+    for words in parseRecords():
+        for w in words:
+            print '%s\t%s' % (w,1)
 
 
 if __name__=='__main__':
     mapper()
+
