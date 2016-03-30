@@ -5,10 +5,8 @@ def parsePairs():
 	for line in sys.stdin:
 		yield tuple(line.strip('\n').split('\t'))
 
-
-dic = {}
-
 def reducer():
+	dic = {}
 	for key, pairs in itertools.groupby(parsePairs(), operator.itemgetter(0)):
 		count = sum(int(i[1]) for i in pairs)
 		dic[key] = count
