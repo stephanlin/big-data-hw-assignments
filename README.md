@@ -167,3 +167,5 @@ with open('citibike.csv','r') as fi:
 # After this, your first_birth_years should be
 # [1978, 1992, 1982, 1969, 1971, 1989, 1963]
 ```
+##HW 5
+please write one Hadoop Streaming job, i.e. consisting of a mapper.py and reducer.py file (along with your run_emr.sh code), where you can supply to the Hadoop Streaming framework to produce the top 3 most frequently appeared words in a document (book.txt in this case). For sanity check, please also include your output (the two 3 words and their counts) in your submission.
