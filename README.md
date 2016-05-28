@@ -174,5 +174,22 @@ Please write one Hadoop Streaming job, i.e. consisting of a mapper.py and reduce
 The objective of this homework is to compute the median trip time (in minutes) for the CitiBike’s data set using Apache Spark. For this assignment, we are only interested in the tripduration field. You must use Apache Spark for this assignment. The data set must be loaded into an RDD, where all your manipulations must be applied on. The final result is expected to be a single number as the median trip time in minutes.
 
 ##HW 7
-In this homework, we would like to generate spatial statistics for yellow taxi trips in NYC. We are interested to know for destinations in each borough of New York, i.e. Manhattan, Brooklyn, Queens, Bronx and Staten Island, the top 3 neighborhoods (e.g. West Village, Williamsburg, Flushing, etc.) that those trips originated from. For example, an answer could be that Upper East Side, Midtown West, and Laguardia Airport are the top 3 origin neighborhood for trips ending up in Manhattan. For the month of May 2011, there were more than 15 million trips, each with pick-up and drop-off location information (i.e. latitude and longitude) and the total size is over 3GB. You are asked to write a Spark application to compute such statistics for the taxi trip records in May 2011. You are also provided with the spatial boundaries for the NYC boroughs and neighborhoods.
+For this homework, we will be practicing Apache Spark with joining multiple data sets. This will be using a very similar approach as the Pig example (i.e. find the top 10 most visited pages for each web category) that we discussed in class a few lectures ago. However, we’ll be using NYC open data sets instead of web clicks, in particular: the SAT Results and the NYC High School Directory data sets. 
+######SAT_Results.csv
+Source: https://nycopendata.socrata.com/Education/SAT-Results/f9bf-2cp4 <br />
+Description: “The most recent school level results for New York City on the SAT. Results are available at the school level for the graduating seniors of 2012.”
+######DOE_High_School_Directory_2014-2015.csv
+Source: https://data.cityofnewyork.us/Education/DOE-High-School-Directory-2014-2015/n3p6-zve2 <br />
+Description: “Directory of NYC High Schools.”
+######Task 1
+You are asked to compute the average SAT Math score of all high schools with 500 students or more, for each borough of the city. Meaning: what is the average SAT Math score of all high schools with 500 students or more in Manhattan, in Brooklyn, in Queens, in Bronx and in Staten Island.<br />
+You must use Apache Spark for this assignment. Both data sets must be loaded into RDDs, where all your manipulations must be applied on, though you are free to transform these RDDs into Spark’s DataFrame or SQL Context. The final result is expected to be a list of tuples borough names as the first elements, and the average scores as the second.
+######Task 2
+We would like to know how the Math scores vary across bus lines or subway lines serving the schools. Your task is to compute the average Math scores of all schools along each bus line and subway line. You can find the bus and subway lines serving each school in the High School Dictionary as bus and subway columns.<br />
+The expected results are two lists:<br />
+1. A list of key/value pairs: with bus line as keys, and the average Math scores as values.<br />
+2. A list of key/value pairs: with subway line as keys, and the average Math scores as values.
+
+##HW 8
+In this homework, we would like to generate spatial statistics for yellow taxi trips in NYC. We are interested to know for destinations in each borough of New York, i.e. Manhattan, Brooklyn, Queens, Bronx and Staten Island, the top 3 neighborhoods (e.g. West Village, Williamsburg, Flushing, etc.) that those trips originated from. For example, an answer could be that Upper East Side, Midtown West, and Laguardia Airport are the top 3 origin neighborhood for trips ending up in Manhattan. For the month of May 2011, there were more than 15 million trips, each with pick-up and drop-off location information (i.e. latitude and longitude) and the total size is over 3GB. You are asked to write a Spark application to compute such statistics for the taxi trip records in May 2011. You are also provided with the spatial boundaries for the NYC boroughs and neighborhoods.<br />
 Please write a Spark application that takes the above file yellow_tripdata_2011-05.csv on HDFS as its input and produce the top 3 origin neighborhoods that delivered passengers to each of the five borough based on the number of trips served.
