@@ -168,4 +168,11 @@ with open('citibike.csv','r') as fi:
 # [1978, 1992, 1982, 1969, 1971, 1989, 1963]
 ```
 ##HW 5
-please write one Hadoop Streaming job, i.e. consisting of a mapper.py and reducer.py file (along with your run_emr.sh code), where you can supply to the Hadoop Streaming framework to produce the top 3 most frequently appeared words in a document (book.txt in this case). For sanity check, please also include your output (the two 3 words and their counts) in your submission.
+Please write one Hadoop Streaming job, i.e. consisting of a mapper.py and reducer.py file (along with your run_emr.sh code), where you can supply to the Hadoop Streaming framework to produce the top 3 most frequently appeared words in a document (book.txt in this case). For sanity check, please also include your output (the two 3 words and their counts) in your submission.
+
+##HW 6
+The objective of this homework is to compute the median trip time (in minutes) for the CitiBike’s data set using Apache Spark. For this assignment, we are only interested in the tripduration field. You must use Apache Spark for this assignment. The data set must be loaded into an RDD, where all your manipulations must be applied on. The final result is expected to be a single number as the median trip time in minutes.
+
+##HW 7
+In this homework, we would like to generate spatial statistics for yellow taxi trips in NYC. We are interested to know for destinations in each borough of New York, i.e. Manhattan, Brooklyn, Queens, Bronx and Staten Island, the top 3 neighborhoods (e.g. West Village, Williamsburg, Flushing, etc.) that those trips originated from. For example, an answer could be that Upper East Side, Midtown West, and Laguardia Airport are the top 3 origin neighborhood for trips ending up in Manhattan. For the month of May 2011, there were more than 15 million trips, each with pick-up and drop-off location information (i.e. latitude and longitude) and the total size is over 3GB. You are asked to write a Spark application to compute such statistics for the taxi trip records in May 2011. You are also provided with the spatial boundaries for the NYC boroughs and neighborhoods.
+Please write a Spark application that takes the above file yellow_tripdata_2011-05.csv on HDFS as its input and produce the top 3 origin neighborhoods that delivered passengers to each of the five borough based on the number of trips served.
